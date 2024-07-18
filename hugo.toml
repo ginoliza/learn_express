@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'hugo-theme-relearn'
+
+[params]
+  themeVariant = ['relearn-dark', 'relearn-light']
+
+[outputs]
+  home = ['html', 'rss', 'search', 'searchpage']
