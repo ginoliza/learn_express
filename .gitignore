@@ -3,6 +3,7 @@
 /resources/_gen/
 /assets/js/config.js
 /assets/scss/config.css
+/sandbox/
 
 # Hugo Logs and Build Artifacts
 hugo_stats.json
