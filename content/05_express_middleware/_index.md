@@ -63,6 +63,8 @@ Al usar `body-parser` se agrega la propiedad `body` al objeto `req` para poder a
 1. Importarlo
 1. Usar `body-parser` como middleware con el método `use` del objeto `express` con el parámetro `bodyParser.urlencoded` ya que se manipulará un formulario HTML; se debe pasar la opción `extended` con `true` o `false` (casi siempre `true`). Usarlo ANTES de las rutas
 
+Si dejo de usar `body-parser` como middleware el `body` del `request` no existe, y se obtiene `undefined`
+
 {{< highlight type="js" wrap="true" hl_lines="2 4">}}
 ...
 import bodyParser from "body-parser";
@@ -75,10 +77,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 Se agrega la propiedad `body` al request `req` para poder manipular los datos
 
-{{< highlight type="js" wrap="true" hl_lines="">}}
+{{< highlight type="js" wrap="true" hl_lines="3">}}
 ...
-app.post("/submit", function (req, res)   
-  console.log(body.req);
+app.post("/submit", function (req, res){
+  console.log(req.body);
 });
 ...
 {{< /highlight >}}
@@ -87,8 +89,8 @@ Son valores `key value` por lo tanto se puede acceder a las entradas individuale
 
 {{< highlight type="js" wrap="true" hl_lines="3">}}
 ...
-app.post("/submit", function (req, res)   
-  console.log(req.body);
+app.post("/submit", function (req, res){
+  console.log(req.body["pet"]);
 });
 ...
 {{< /highlight >}}
